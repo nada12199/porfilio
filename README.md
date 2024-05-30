@@ -4,8 +4,6 @@ A simple portfolio starter theme built with React and Tailwind CSS.
 
 ## Demo URL
 
-### To Contribute to this project, read the [Contribution Guidlines](https://github.com/realstoman/react-tailwindcss-portfolio/blob/main/CONTRIBUTING.md)
-
 ## Setup
 
 1. Make sure you have Node JS installed. If you don't have it:
