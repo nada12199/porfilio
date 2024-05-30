@@ -4,16 +4,19 @@ import emailjs from 'emailjs-com'
 import * as Yup from 'yup'
 import { useTranslation } from 'react-i18next'
 import '../../i18n'
-// Define the validation schema
-const validationSchema = Yup.object().shape({
-  senderEmail: Yup.string()
-    .email(t('emailValidatio'))
-    .required(t('entityValidation')),
-  subject: Yup.string().required(t('entityValidation')),
-  message: Yup.string().required(t('entityValidation')),
-})
 
 const ContactForm = () => {
+  const { t, i18n } = useTranslation()
+
+  // Define the validation schema
+  const validationSchema = Yup.object().shape({
+    senderEmail: Yup.string()
+      .email(t('emailValidatio'))
+      .required(t('entityValidation')),
+    subject: Yup.string().required(t('entityValidation')),
+    message: Yup.string().required(t('entityValidation')),
+  })
+
   const [formData, setFormData] = useState({
     senderEmail: '',
     subject: '',
@@ -37,10 +40,10 @@ const ContactForm = () => {
       setErrors({})
 
       await emailjs.send(
-        'service_bb5ua3d',
-        'template_mhjz0qw',
+        process.env.REACT_APP_EMAIL_SERVICE,
+        process.env.REACT_APP_EMAIL_TEMPLATE,
         formData,
-        'zIIK5UqZaeW1DFCjp',
+        process.env.REACT_APP_EMAIL_USER_ID,
       )
       setSuccess(true)
     } catch (error) {
@@ -57,7 +60,7 @@ const ContactForm = () => {
       }
     }
   }
-  const { t, i18n } = useTranslation()
+
   return (
     <>
       <div className="w-full lg:w-1/2">

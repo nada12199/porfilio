@@ -39,10 +39,10 @@ const HireMeModal = ({ onClose, onRequest }) => {
       setErrors({})
 
       await emailjs.send(
-        'service_bb5ua3d',
-        'template_mhjz0qw',
+        process.env.REACT_APP_EMAIL_SERVICE,
+        process.env.REACT_APP_EMAIL_TEMPLATE,
         formData,
-        'zIIK5UqZaeW1DFCjp',
+        process.env.REACT_APP_EMAIL_USER_ID,
       )
       setSuccess(true)
       setTimeout(() => {

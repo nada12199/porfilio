@@ -87,14 +87,14 @@ const AppHeader = () => {
                   onClick={() => changeLanguage('en')}
                   className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl"
                 >
-                  En
+                  Fr
                 </span>
               ) : (
                 <span
                   onClick={() => changeLanguage('fr')}
                   className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl"
                 >
-                  Fr
+                  En
                 </span>
               )}
             </div>
