@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import useThemeSwitcher from '../../hooks/useThemeSwitcher'
 import HireMeModal from '../HireMeModal'
 import logoLight from '../../images/logo-light.png'
@@ -10,6 +10,7 @@ import Button from '../reusable/Button'
 import { useTranslation } from 'react-i18next'
 import '../../i18n'
 const AppHeader = () => {
+  const location = useLocation()
   const [showMenu, setShowMenu] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [activeTheme, setTheme] = useThemeSwitcher()
@@ -44,6 +45,12 @@ const AppHeader = () => {
     }
   }
 
+  useEffect(() => {
+    if (showMenu) {
+      setShowMenu(false)
+    }
+  }, [location.pathname])
+
   return (
     <motion.nav
       initial={{ opacity: 0 }}
@@ -66,20 +73,19 @@ const AppHeader = () => {
 
           {/* Theme switcher small screen */}
 
-          <div className="grid grid-cols-2 ">
+          <div className="grid grid-cols-2 justify-between gap-3">
             <div
-              className="rounded flex items-center justify-center space-x-4 block sm:hidden ml-0 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
+              className="rounded flex items-center justify-center space-x-4 block sm:hidden ml-0 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer "
               aria-label="Theme Switcher"
               onClick={() => setTheme(activeTheme)}
             >
-              {/* Added space-x-4 to add horizontal space between items */}
               {activeTheme === 'dark' ? (
                 <FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
               ) : (
                 <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
               )}
             </div>
-            <div className="rounded flex items-center justify-center space-x-4 block sm:hidden ml-0 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer">
+            <div className="rounded flex items-center justify-center  block sm:hidden ml-0 bg-primary-light dark:bg-ternary-dark  shadow-sm rounded-xl cursor-pointer ">
               {' '}
               {/* Added space-x-4 here as well */}
               {language === 'fr' ? (
@@ -87,14 +93,14 @@ const AppHeader = () => {
                   onClick={() => changeLanguage('en')}
                   className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl"
                 >
-                  Fr
+                  En
                 </span>
               ) : (
                 <span
                   onClick={() => changeLanguage('fr')}
                   className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl"
                 >
-                  En
+                  Fr
                 </span>
               )}
             </div>
@@ -133,21 +139,44 @@ const AppHeader = () => {
         >
           <Link
             to="/projects"
-            className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+            className={`block text-lg text-left ${
+              location.pathname === '/projects'
+                ? 'text-indigo-500 dark:text-ternary-light underline'
+                : 'text-primary-dark dark:text-ternary-light'
+            }  hover:text-indigo-500 dark:hover:text-secondary-light sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark`}
             aria-label="Projects"
           >
             {t('projects')}
           </Link>
           <Link
+            to="/certification"
+            className={`block text-lg text-left ${
+              location.pathname === '/certification'
+                ? 'text-indigo-500 dark:text-ternary-light underline'
+                : 'text-primary-dark dark:text-ternary-light'
+            }  hover:text-indigo-500 dark:hover:text-secondary-light sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark`}
+            aria-label="Certification"
+          >
+            {t('certification')}
+          </Link>
+          <Link
             to="/about"
-            className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
+            className={`block text-lg text-left ${
+              location.pathname === '/about'
+                ? 'text-indigo-500 dark:text-ternary-light underline'
+                : 'text-primary-dark dark:text-ternary-light'
+            }  hover:text-indigo-500 dark:hover:text-secondary-light sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark`}
             aria-label="About Me"
           >
             {t('aboutMe')}
           </Link>
           <Link
             to="/contact"
-            className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
+            className={`block text-lg text-left ${
+              location.pathname === '/contact'
+                ? 'text-indigo-500 dark:text-ternary-light underline'
+                : 'text-primary-dark dark:text-ternary-light'
+            }  hover:text-indigo-500 dark:hover:text-secondary-light sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-0 sm:border-t-0 border-primary-light dark:border-secondary-dark`}
             aria-label="Contact"
           >
             {t('contact')}
@@ -167,21 +196,44 @@ const AppHeader = () => {
         <div className="font-general-medium hidden m-0 sm:ml-4 mt-5 sm:mt-3 sm:flex p-5 sm:p-0 justify-center items-center shadow-lg sm:shadow-none">
           <Link
             to="/projects"
-            className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+            className={`block text-lg text-left ${
+              location.pathname === '/projects'
+                ? 'text-indigo-500 dark:text-ternary-light underline'
+                : 'text-primary-dark dark:text-ternary-light'
+            }  hover:text-indigo-500 dark:hover:text-secondary-light sm:mx-4 mb-2 sm:py-2`}
             aria-label="Projects"
           >
             {t('projects')}
           </Link>
           <Link
+            to="/certification"
+            className={`block text-lg text-left ${
+              location.pathname === '/certification'
+                ? 'text-indigo-500 dark:text-ternary-light underline'
+                : 'text-primary-dark dark:text-ternary-light'
+            }  hover:text-indigo-500 dark:hover:text-secondary-light sm:mx-4 mb-2 sm:py-2`}
+            aria-label="Certification"
+          >
+            {t('certification')}
+          </Link>
+          <Link
             to="/about"
-            className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+            className={`block text-lg text-left ${
+              location.pathname === '/about'
+                ? 'text-indigo-500 dark:text-ternary-light underline'
+                : 'text-primary-dark dark:text-ternary-light'
+            }  hover:text-indigo-500 dark:hover:text-secondary-light sm:mx-4 mb-2 sm:py-2`}
             aria-label="About Me"
           >
             {t('aboutMe')}
           </Link>
           <Link
             to="/contact"
-            className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+            className={`block text-lg text-left ${
+              location.pathname === '/contact'
+                ? 'text-indigo-500 dark:text-ternary-light underline'
+                : 'text-primary-dark dark:text-ternary-light'
+            }  hover:text-indigo-500 dark:hover:text-secondary-light sm:mx-4 mb-2 sm:py-2`}
             aria-label="Contact"
           >
             {t('contact')}
@@ -189,8 +241,8 @@ const AppHeader = () => {
         </div>
 
         {/* Header right section buttons */}
-        <div className="hidden sm:flex justify-between items-center flex-col md:flex-row">
-          <div className="hidden md:flex">
+        <div className="hidden sm:flex justify-between items-center flex-col sm:flex-row gap-3">
+          <div className="hidden sm:flex">
             <span
               onClick={showHireMeModal}
               className="text-md font-general-medium bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-md px-5 py-2.5 duration-300"
@@ -202,9 +254,9 @@ const AppHeader = () => {
 
           {/* Theme switcher large screen */}
 
-          <div className="grid grid-cols-2 ">
+          <div className="grid grid-cols-2  justify-between gap-3 ">
             <div
-              className="rounded flex items-center justify-center space-x-4 ml-8 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
+              className="rounded flex items-center justify-center space-x-4  bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer"
               aria-label="Theme Switcher"
               onClick={() => setTheme(activeTheme)}
             >
@@ -215,7 +267,7 @@ const AppHeader = () => {
                 <FiSun className="text-gray-200 hover:text-gray-50 text-xl" />
               )}
             </div>
-            <div className="rounded flex items-center justify-center space-x-4 ml-8 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer">
+            <div className="rounded flex items-center justify-center space-x-4  bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer">
               {' '}
               {/* Added space-x-4 here as well */}
               {language === 'fr' ? (
@@ -223,14 +275,14 @@ const AppHeader = () => {
                   onClick={() => changeLanguage('en')}
                   className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl"
                 >
-                  Fr
+                  En
                 </span>
               ) : (
                 <span
                   onClick={() => changeLanguage('fr')}
                   className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl"
                 >
-                  En
+                  Fr
                 </span>
               )}
             </div>

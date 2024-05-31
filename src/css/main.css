@@ -738,6 +738,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
+.bg-white {
+  background-color: white;
+}
+.text-indigo-500 {
+  --tw-bg-opacity: 1;
+  color: rgb(99 102 241 / var(--tw-bg-opacity));
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
 .bg-gray-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));

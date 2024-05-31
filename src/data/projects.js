@@ -1,33 +1,36 @@
 // Import images
-import WebImage1 from '../images/web-project-1.jpg'
-import WebImage2 from '../images/web-project-2.jpg'
-import MobileImage1 from '../images/mobile-project-1.jpg'
 import bauscout from '../images/bauscout.png'
 import esprit from '../images/esprit.jpeg'
-import UIImage2 from '../images/ui-project-2.jpg'
+import medtnLogo from '../images/medtn_logo.jpeg'
 import spfLogo from '../images/spf.jpeg'
 export const projectsData = [
   {
     id: 1,
-    title: 'fullStack',
+    title: 'spf_name',
     category: 'category1',
     img: spfLogo,
   },
   {
     id: 2,
-    title: 'ingénieurAlternance',
+    title: 'baus_name',
     category: 'category1',
     img: bauscout,
   },
   {
     id: 3,
-    title: 'développeurDevops',
+    title: 'med_name',
+    category: 'category1',
+    img: medtnLogo,
+  },
+  {
+    id: 4,
+    title: 'projet_academic2',
     category: 'category2',
     img: esprit,
   },
   {
-    id: 4,
-    title: 'développeur',
+    id: 5,
+    title: 'projet_academic1',
     category: 'category2',
     img: esprit,
   },

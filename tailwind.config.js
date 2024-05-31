@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        ...colors,
         'primary-light': '#F7F8FC',
         'secondary-light': '#FFFFFF',
         'ternary-light': '#f6f7f8',
@@ -26,7 +27,13 @@ module.exports = {
     },
   },
   variants: {
-    extend: { opacity: ['disabled'] },
+    extend: {
+      opacity: ['disabled'],
+    },
   },
-  plugins: ['@tailwindcss/forms'],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }

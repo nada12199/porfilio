@@ -1,4 +1,4 @@
-import { FiPhone, FiMapPin, FiMail } from 'react-icons/fi'
+import { FiMapPin, FiMail } from 'react-icons/fi'
 import { useTranslation } from 'react-i18next'
 import '../../i18n'
 const contacts = [
@@ -11,11 +11,6 @@ const contacts = [
     id: 2,
     name: 'myEmail',
     icon: <FiMail />,
-  },
-  {
-    id: 3,
-    name: 'myNumber',
-    icon: <FiPhone />,
   },
 ]
 
