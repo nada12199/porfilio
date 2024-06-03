@@ -11,7 +11,7 @@ const socialLinks = [
   {
     id: 4,
     icon: <FiLinkedin />,
-    url: 'https://www.linkedin.com/in/nada-fennani-445b1a201/',
+    url: 'https://github.com/nada12199',
   },
 ]
 
