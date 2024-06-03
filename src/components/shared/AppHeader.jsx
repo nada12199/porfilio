@@ -24,11 +24,7 @@ const AppHeader = () => {
   }
 
   function toggleMenu() {
-    if (!showMenu) {
-      setShowMenu(true)
-    } else {
-      setShowMenu(false)
-    }
+    setShowMenu(!showMenu)
   }
 
   function showHireMeModal() {

@@ -5,13 +5,13 @@ const socialLinks = [
   {
     id: 2,
     icon: <FiGithub />,
-    url: 'https://github.com/nada12199?tab=projects',
+    url: 'https://github.com/nada12199',
   },
 
   {
     id: 4,
     icon: <FiLinkedin />,
-    url: 'https://github.com/nada12199',
+    url: 'https://www.linkedin.com/in/nada-fennani-445b1a201/',
   },
 ]
 

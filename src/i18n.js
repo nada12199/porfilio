@@ -152,7 +152,7 @@ const resources = {
       emailValidatio: 'Email invalide',
       entityValidation: 'Ce champ est requis',
       name: 'Bonjour, je suis Nada Fennani',
-      job: 'une ingénieur Full-Stack',
+      job: 'Ingénieur Full-Stack',
       downloadCv: 'Télécharger CV',
       fullStack: 'Ingénieur Full Stack ',
       category1: 'Expérience professionnelle',
