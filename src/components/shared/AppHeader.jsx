@@ -49,7 +49,8 @@ const AppHeader = () => {
     if (showMenu) {
       setShowMenu(false)
     }
-  }, [location.pathname, showMenu])
+    // eslint-disable-next-line
+  }, [location.pathname])
 
   return (
     <motion.nav
