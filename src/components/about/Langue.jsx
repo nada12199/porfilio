@@ -4,7 +4,7 @@ import CounterItem from './CounterItem'
 
 import '../../i18n'
 const LangueList = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   return (
     <div className=" py-20 text-ternary-dark dark:text-ternary-light">

@@ -7,7 +7,7 @@ export const ProjectsContext = createContext()
 
 // Create the projects context provider
 export const ProjectsProvider = (props) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const [projects, setProjects] = useState(projectsData)
   const [searchProject, setSearchProject] = useState('')
   const [selectProject, setSelectProject] = useState('')

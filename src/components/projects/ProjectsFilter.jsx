@@ -3,7 +3,7 @@ import '../../i18n'
 const selectOptions = ['category1', 'category2']
 
 const ProjectsFilter = ({ setSelectProject }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   return (
     <select
       onChange={(e) => {

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import '../../i18n'
 const ImageCarousel = ({ images }) => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   const [currentIndex, setCurrentIndex] = useState(1)
 

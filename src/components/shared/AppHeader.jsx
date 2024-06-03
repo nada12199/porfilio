@@ -49,7 +49,7 @@ const AppHeader = () => {
     if (showMenu) {
       setShowMenu(false)
     }
-  }, [location.pathname])
+  }, [location.pathname, showMenu])
 
   return (
     <motion.nav

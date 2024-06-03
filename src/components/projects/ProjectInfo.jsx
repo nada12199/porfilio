@@ -5,7 +5,7 @@ import '../../i18n'
 import ImageCarousel from '../shared/ImageCarousel'
 const ProjectInfo = ({ id }) => {
   const { singleProjectData } = useContext(SingleProjectContext)
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const project = singleProjectData.find(
     (project) => parseInt(project.ProjectId) === parseInt(id),
   )

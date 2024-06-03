@@ -4,7 +4,7 @@ import StarRating from '../shared/StarRating'
 import '../../i18n'
 
 const TechnologieList = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   const technologies = {
     frontend: [

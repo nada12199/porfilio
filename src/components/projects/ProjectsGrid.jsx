@@ -17,7 +17,7 @@ const ProjectsGrid = () => {
     selectProjectsByCategory,
   } = useContext(ProjectsContext)
 
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   return (
     <section className="py-5 sm:py-10 mt-5 sm:mt-10">
       <div className="text-center ">

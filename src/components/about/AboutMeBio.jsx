@@ -2,7 +2,7 @@ import profileImage from '../../images/profile.png'
 import { useTranslation } from 'react-i18next'
 import '../../i18n'
 const AboutMeBio = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   return (
     <div className="block sm:flex sm:gap-10 mt-10 sm:mt-20">
       <div className="w-full sm:w-1/4 mb-7 sm:mb-0 mx-auto">

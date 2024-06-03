@@ -9,7 +9,7 @@ import '../../i18n'
 const ProjectSingleHeader = ({ id }) => {
   const navigate = useNavigate()
   const { singleProjectData } = useContext(SingleProjectContext)
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const project = singleProjectData.find(
     (project) => parseInt(project.ProjectId) === parseInt(id),
   )

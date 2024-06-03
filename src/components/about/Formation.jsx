@@ -1,10 +1,8 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
 import '../../i18n'
 const FormationList = () => {
-  const { t, i18n } = useTranslation()
-  const navige = useNavigate()
+  const { t } = useTranslation()
   return (
     <div className="container mx-auto px-4 ">
       <div className="text-center mt-8 mb-8">

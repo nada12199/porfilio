@@ -15,7 +15,7 @@ const contacts = [
 ]
 
 const ContactDetails = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   return (
     <div className="w-full lg:w-1/2">
