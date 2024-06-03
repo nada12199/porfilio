@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi'
 import { Link, useLocation } from 'react-router-dom'
 import useThemeSwitcher from '../../hooks/useThemeSwitcher'
@@ -23,7 +23,7 @@ const AppHeader = () => {
     i18n.changeLanguage(lng)
   }
 
-  function toggleMenu() {
+  const toggleMenu = () => {
     setShowMenu(!showMenu)
   }
 
@@ -41,12 +41,12 @@ const AppHeader = () => {
     }
   }
 
-  /*   useEffect(() => {
+  useEffect(() => {
     if (showMenu) {
       setShowMenu(false)
     }
     // eslint-disable-next-line
-  }, [location.pathname]) */
+  }, [location.pathname])
 
   return (
     <motion.nav
