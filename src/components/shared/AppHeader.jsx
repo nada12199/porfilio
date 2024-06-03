@@ -41,12 +41,12 @@ const AppHeader = () => {
     }
   }
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (showMenu) {
       setShowMenu(false)
     }
     // eslint-disable-next-line
-  }, [location.pathname])
+  }, [location.pathname]) */
 
   return (
     <motion.nav
