@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 
 const CardSingle = ({ title, category, image, link, isProject, id }) => {
   const navigate = useNavigate()
-  console.log('key', id)
   const handleLink = () => {
     if (isProject) {
       navigate('/projects/' + id)

@@ -738,6 +738,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
+.text-yellow-500 {
+  color: rgb(252 211 77);
+}
+.text-gray {
+  color: rgb(220, 220, 220);
+}
 .bg-white {
   background-color: white;
 }

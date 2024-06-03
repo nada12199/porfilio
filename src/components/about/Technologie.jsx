@@ -1,8 +1,59 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import StarRating from '../shared/StarRating'
 import '../../i18n'
+
 const TechnologieList = () => {
   const { t, i18n } = useTranslation()
+
+  const technologies = {
+    frontend: [
+      { name: 'ReactJS', rating: 5 },
+      { name: 'TypeScript', rating: 4 },
+      { name: 'Redux', rating: 4 },
+      { name: 'Next.js', rating: 5 },
+      { name: 'Javascript', rating: 5 },
+      { name: 'Jest', rating: 4 },
+    ],
+    backendDevOps: [
+      { name: 'NestJs', rating: 5 },
+      { name: 'Mailjet', rating: 5 },
+      { name: 'Spring Security', rating: 4.5 },
+      { name: 'Node JS', rating: 5 },
+      { name: 'Spring Boot', rating: 4.5 },
+      { name: 'Sonar', rating: 4 },
+      { name: 'Nexus', rating: 3 },
+      { name: 'Git', rating: 5 },
+      { name: 'Docker', rating: 4 },
+      { name: 'Maven', rating: 3 },
+      { name: 'Jenkins', rating: 3 },
+      { name: 'Amazon S3', rating: 4 },
+    ],
+    database: [{ name: 'MySQL', rating: 5 }],
+    design: [
+      { name: 'Material UI', rating: 5 },
+      { name: 'Figma', rating: 4 },
+      { name: 'Styled Components', rating: 5 },
+      { name: 'Tailwind', rating: 4 },
+    ],
+    projectManagement: [
+      { name: 'Git', rating: 5 },
+      { name: 'Scrum', rating: 5 },
+      { name: 'Jira', rating: 5 },
+      { name: 'Notion', rating: 4.5 },
+    ],
+  }
+
+  const renderTechnologies = (category) => (
+    <ul>
+      {technologies[category].map((tech, index) => (
+        <li key={index} className="flex space-x-2">
+          <span className="mr-2">{tech.name}</span>
+          <StarRating rating={tech.rating} />
+        </li>
+      ))}
+    </ul>
+  )
 
   return (
     <div className="container mx-auto px-4 text-ternary-dark dark:text-ternary-light">
@@ -12,64 +63,36 @@ const TechnologieList = () => {
         </span>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 text-center">
-        <div class="px-2">
-          <h2 class="text-xl font-semibold mb-2 sm:mb-4">Frontend</h2>
-          <ul>
-            <li>ReactJS</li>
-            <li>TypeScript</li>
-            <li>Redux</li>
-            <li>Next.js</li>
-            <li>Javascript</li>
-            <li>Jest</li>
-          </ul>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 text-start">
+        <div className="px-2">
+          <h2 className="text-xl font-semibold mb-2 sm:mb-4">Frontend</h2>
+          {renderTechnologies('frontend')}
         </div>
 
-        <div class="px-2">
-          <h2 class="text-xl font-semibold mb-2 sm:mb-4">Backend & DevOps</h2>
-          <ul>
-            <li>NestJs</li>
-            <li>Mailjet</li>
-            <li>Spring Security</li>
-            <li>Node JS</li>
-            <li>Spring Boot</li>
-            <li>Sonar</li>
-            <li>Nexus</li>
-            <li>Git</li>
-            <li>Docker</li>
-            <li>Maven</li>
-            <li>Jenkins</li>
-            <li>Amazon S3</li>
-          </ul>
+        <div className="px-2">
+          <h2 className="text-xl font-semibold mb-2 sm:mb-4">
+            Backend & DevOps
+          </h2>
+          {renderTechnologies('backendDevOps')}
         </div>
 
-        <div class="px-2">
-          <h2 class="text-xl font-semibold mb-2 sm:mb-4">{t('database')}</h2>
-          <ul>
-            <li>MySQL</li>
-          </ul>
+        <div className="px-2">
+          <h2 className="text-xl font-semibold mb-2 sm:mb-4">
+            {t('database')}
+          </h2>
+          {renderTechnologies('database')}
         </div>
 
-        <div class="px-2">
-          <h2 class="text-xl font-semibold mb-2 sm:mb-4">Design</h2>
-          <ul>
-            <li>Material UI</li>
-            <li>Figma</li>
-            <li>Styled Components</li>
-            <li>Tailwind</li>
-          </ul>
+        <div className="px-2">
+          <h2 className="text-xl font-semibold mb-2 sm:mb-4">Design</h2>
+          {renderTechnologies('design')}
         </div>
 
-        <div class="px-2">
-          <h2 class="text-xl font-semibold mb-2 sm:mb-4">
+        <div className="px-2">
+          <h2 className="text-xl font-semibold mb-2 sm:mb-4">
             {t('projectManagement')}
           </h2>
-          <ul>
-            <li>Git</li>
-            <li>Scrum</li>
-            <li>Jira</li>
-            <li>Notions</li>
-          </ul>
+          {renderTechnologies('projectManagement')}
         </div>
       </div>
     </div>
