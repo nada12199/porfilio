@@ -256,7 +256,7 @@ const resources = {
         'Ajouter des lignes de code pour journaliser et ajouter des classes de tests unitaires',
       devops_details3:
         'Lancer sonar sur le projet et mettre le livrable du projet sur Nexus.',
-      devops_details4: 'Automatiser les tâches Livraison continue avec Docke',
+      devops_details4: 'Automatiser les tâches Livraison continue avec Docker',
       dari_publishDate: 'Février 2021 à mai 2021',
       dari_details1: "Plateforme web pour la gestion d' immobiliers.",
       dari_details2:
