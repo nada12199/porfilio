@@ -38,23 +38,29 @@ const ProjectGallery = ({ id }) => {
         </p>
         <ul className="leading-loose">
           {project.ProjectInfo.CompanyInfo.map((info) => {
+            console.log(
+              "t(info.title) === 'Website'",
+              t(info.title) === 'Website',
+            )
             return (
               <li
                 className="font-general-regular text-ternary-dark dark:text-ternary-light"
                 key={info.id}
               >
                 <span>{t(info.title)}: </span>
-                <a
-                  href={t(info.details)}
-                  className={
-                    info.title === 'Website'
-                      ? 'hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300'
-                      : ''
-                  }
-                  aria-label="Project Website and Phone"
-                >
-                  {t(info.details)}
-                </a>
+                {info.title === 'Website' ? (
+                  <a
+                    href={t(info.details)}
+                    className={
+                      'hover:underline hover:text-indigo-500 dark:hover:text-indigo-400 cursor-pointer duration-300'
+                    }
+                    aria-label="Project Website and Phone"
+                  >
+                    {t(info.details)}
+                  </a>
+                ) : (
+                  t(info.details)
+                )}
               </li>
             )
           })}
