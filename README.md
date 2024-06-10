@@ -3,6 +3,7 @@
 A simple portfolio starter theme built with React and Tailwind CSS.
 
 ## Demo URL
+https://665e3a32f979c860d4932ec6--benevolent-fox-e56db8.netlify.app/
 
 ## Setup
 
